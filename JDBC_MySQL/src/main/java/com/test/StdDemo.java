@@ -9,7 +9,7 @@ public static void main(String[] args) {
 		StudentDao sdao = new StudentDao();
 		
 		Student st = new Student();
-//		
+		
 //		Scanner sc = new Scanner(System.in);
 //		
 //		System.out.println("usn");
@@ -33,7 +33,7 @@ public static void main(String[] args) {
 	
 		sdao.saveStudent(st);
 //	
-//		System.out.println("Saved Employee data");
+		System.out.println("Saved Employee data");
 //	
 		System.out.println("student details");
 		List<Student> data = sdao.getAllStudent();
@@ -52,3 +52,10 @@ public static void main(String[] args) {
 		sdao.deleteStudent("");
 }
 }
+
+
+
+
+
+
+
