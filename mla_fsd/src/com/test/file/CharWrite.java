@@ -1,0 +1,20 @@
+package com.test.file;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+
+public class CharWrite {
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		FileWriter fw =new FileWriter("src/ct.txt");
+		
+		BufferedWriter bw = new BufferedWriter(fw);
+		String msg= "This is simple char stream write and read";
+		
+		bw.write(msg);
+		bw.flush();
+		System.out.println("done");
+	}
+
+}
