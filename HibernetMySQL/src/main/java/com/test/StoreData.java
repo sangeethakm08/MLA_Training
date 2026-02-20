@@ -29,7 +29,7 @@ public class StoreData {
 		obj.setB_author("Oracle12");
 		obj.setB_price(52);
 		
-//		session.persist(obj);
+		session.persist(obj);
 	
 		t.commit();
 		Query<Book> q= session.createQuery("from Book");

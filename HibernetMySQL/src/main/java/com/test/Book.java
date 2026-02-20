@@ -15,7 +15,7 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
-//	@Column(name = "book_name", nullable = false, precision = 50)
+	@Column(name = "book_name", nullable = false, precision = 50)
 	private String b_name;
 	private String b_author;
 	private int b_price;
