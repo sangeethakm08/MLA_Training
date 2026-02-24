@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+	
+	
+	<bean id="adr1" class="com.test.Address">
+		<constructor-arg name="city" value="xyz"></constructor-arg>
+		<constructor-arg name="state" value="abc"></constructor-arg>
+		<constructor-arg name="country" value="in"></constructor-arg>
+	</bean>
+	
+	<bean id="cst1" class="com.test.Customer">
+		<constructor-arg name="id" value="xyz"></constructor-arg>
+		<constructor-arg name="name" value="abc"></constructor-arg>
+		<constructor-arg name="adr" ref="adr1"></constructor-arg>
+	</bean>
+	
+	<bean id="adr" class="com.test.Address" scope="singleton" autowire="default">  
+		<property name="city" value="abc"></property>
+		<property name="state" value="XYZ"></property>
+		<property name="country" value="ABC"></property>
+	</bean>
+	
+	
+	<bean id="cst" class="com.test.Customer">
+		<property name="id" value="534"></property>
+		<property name="name" value="XYZ"></property>
+		<property name="adr" ref="adr"></property>
+	</bean>
+	
+</beans>
