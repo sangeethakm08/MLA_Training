@@ -20,7 +20,7 @@ public class ConnectionManager {
 			System.out.println("Disconnecting from external service...");
 			isConnected = false;
 			System.out.println("Connection closed isConnected"+isConnected);
-		}
+		} 
 		public void operation() {
 			if(isConnected) {
 				System.out.println("Preparing operation with active");
