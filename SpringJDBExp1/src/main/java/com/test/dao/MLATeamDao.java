@@ -11,7 +11,7 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 
 import com.test.model.MLATeam;
 
-public class MLATeamDao {       //DAO - DATA ACCESS OBJECT
+public class MLATeamDao {      
 	
 	private JdbcTemplate jdbcTemplate;
 

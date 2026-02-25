@@ -6,6 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.test.dao.MLATeamDao;
+import com.test.dao.MLATeamDao1;
+
 import com.test.model.MLATeam;
 
 //import com.test.dao.MLATeamDao;
@@ -17,15 +19,18 @@ public class TestDemo {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("beans.xml");
 		
 		MLATeamDao dao = ctx.getBean("tdao", MLATeamDao.class);
+		MLATeamDao1 dao1 = ctx.getBean("tdao1", MLATeamDao1.class);
+		
 		
 		MLATeam obj = new MLATeam();
 		
-		obj.setId(101);
-		obj.setName("adas"); 
-		obj.setSkill("sdfg");
-		obj.setManager("aasfbc");
+		obj.setId(102);
+		obj.setName("abc"); 
+		obj.setSkill("xyz");
+		obj.setManager("ab c");
 		
-		dao.saveMLATeam(obj);
+//		dao.saveMLATeam(obj);
+		dao1.createMLATeam(obj);                //named parameter
 //		dao.updateMLATeam(obj);
 
 		List<MLATeam> list = dao.getAllMembers();
