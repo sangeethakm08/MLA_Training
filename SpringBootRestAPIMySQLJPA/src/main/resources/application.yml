@@ -16,6 +16,12 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+    # Explicitly set the Hibernate dialect so Hibernate doesn't need JDBC metadata
+    # to auto-detect the database dialect. Using the Hibernate 6+ generic MySQL dialect.
+    database-platform: org.hibernate.dialect.MySQLDialect
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
   
 debug: true
 server:
