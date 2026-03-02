@@ -40,11 +40,11 @@ public class WebSecurityConfig {
 	protected SecurityFilterChain filterChain(HttpSecurity http) {
 		return http.csrf(AbstractHttpConfigurer :: disable).authorizeHttpRequests(
 				request -> request.requestMatchers("/login").permitAll().requestMatchers("/")
-//				.hasRole("ADMIN")
-//				.requestMatchers("/user/read")
-//				.hasAnyRole("USER", "ADMIN")
-//				.requestMatchers("/user/hr/**")
-//				.hasAnyRole("HR", "EMPLOYEE", "ADMIN").anyRequest()
+				.hasAnyAuthority("ROLE_ADMIN", "ROLE_USER", "ROLE_HR", "ROLE_EMPLOYEE")
+				.requestMatchers("/user/read")
+				.hasAnyAuthority("ROLE_USER", "ROLE_ADMIN")
+				.requestMatchers("/user/hr/**")
+				.hasAnyAuthority("ROLE_HR", "ROLE_EMPLOYEE", "ROLE_ADMIN").anyRequest()
 				.authenticated())
 				.formLogin(form -> form.loginPage("/login").defaultSuccessUrl("/").failureUrl("/login?error=true").permitAll())
 				.logout(config -> config.logoutUrl("/logout").logoutSuccessUrl("/login")).build();

@@ -21,11 +21,11 @@ public class UserController {
 		return "login";
 	}
 	
-	@GetMapping("/read")
-	@ResponseBody
-	@PreAuthorize("hasRole('ROLE_USER')")
+	@GetMapping("user/read")
+  	@ResponseBody
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_USER', 'ROLE_HR', 'ROLE_EMPLOYEE')")
 	public String userPage() {
-		return "USER AND ADMIN CAN READ THE DATA";
+		return "ALL THE USER CAN READ THE DATA";
 	}
 	
 	@GetMapping("/delete")
@@ -36,25 +36,25 @@ public class UserController {
 	}
 	
 
-	@GetMapping("/task")
+	@GetMapping("user/hr/onboard")
 	@ResponseBody
-	@PreAuthorize("hasAnyRole('ROLE_EMPLOYEE', 'ROLE_HR', 'ROLE_ADMIN')")
+	@PreAuthorize("hasAnyRole('ROLE_HR', 'ROLE_ADMIN')")
 	public String updateHR() {
-		return "ONLY ASSIGN task";
+		return "ONLY HR AND ADMIN CAN ASSIGN TASK";
 	}
 	
-	@GetMapping("/work")
-	@ResponseBody
-	@PreAuthorize("hasRole('ROLE_EMPLOYEE')")
-	public String empPage() {
-		return "ONLY work on ASSIGNed task";
-	}
+//	@GetMapping("/work")
+//	@ResponseBody
+//	@PreAuthorize("hasRole('ROLE_EMPLOYEE')")
+//	public String empPage() {
+//		return "ONLY EMPLOYEE CAN WORK";
+//	}
 	
 	@GetMapping("/update")
 	@ResponseBody
-	@PreAuthorize("hasAnyRole('ROLE_ADMIN', 'ROLE_HR')")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN')")
 	public String updateUsers() {
-		return "Details updated with ADMIN and HR role";
+		return "Details updated with ADMIN role";
 	}
 	
 	
