@@ -10,30 +10,27 @@ import com.test.repository.ProductRepository;
 
 @Service
 public class ProductService {
-
+	
 	@Autowired
 	private ProductRepository repository;
 	
-	public void save(Product product) {
+	public void save(Product product)
+	{
 		repository.save(product);
 	}
 	
-	public List<Product> listAll(){
+	public List<Product> listAll()
+	{
 		return repository.findAll();
 	}
 	
-	public Product get(int id) {
+	public Product get(int id)
+	{
 		return repository.findById(id).get();
 	}
 	
-	public void delete(int id) {
+	public void delete(int id)
+	{
 		repository.deleteById(id);
 	}
-	
-	
-	
-	
-	
-	
-	
 }

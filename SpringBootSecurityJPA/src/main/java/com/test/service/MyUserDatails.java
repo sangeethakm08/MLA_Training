@@ -14,13 +14,15 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.test.entity.Role;
 import com.test.entity.User;
 
-public class MyUserDetails implements UserDetails {
+/*
 
-	private static final long serialVersionUID = 1L;
+public class MyUserDatails implements UserDetails {
+
 	private User user;
 	
-	public MyUserDetails(User user) {
-		this.user=user;
+	public MyUserDatails(User user) {
+		
+		this.user = user;
 	}
 
 	@Override
@@ -30,9 +32,11 @@ public class MyUserDetails implements UserDetails {
 		
 		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
 		
-		for(Role role : roles) {
+		for(Role role : roles)
+		{
 			authorities.add(new SimpleGrantedAuthority(role.getName()));
 		}
+		
 		return authorities;
 	}
 
@@ -44,26 +48,34 @@ public class MyUserDetails implements UserDetails {
 
 	@Override
 	public String getUsername() {
-
+		
 		return user.getUsername();
 	}
 	
-	public boolean isAccountNotExpired() {
-		return true;
-	}
-	@Autowired
-	public boolean isAccountNonLocked() {
-		return true;
-	}
-	
-	@Autowired
-	public boolean isCreadentialsNonExpired() {
+	@Override
+	public boolean isAccountNonExpired()
+	{
 		return true;
 	}
 	
 	@Autowired
-	public boolean isEnable() {
+	public boolean isAccountNonLocked()
+	{
+		return true;
+	}
+	
+	@Autowired
+	public boolean isCredentialsNonExpired()
+	{
+		return true;
+	}
+	
+	@Autowired
+	public boolean isEnabled()
+	{
 		return user.isEnabled();
 	}
 
 }
+
+*/

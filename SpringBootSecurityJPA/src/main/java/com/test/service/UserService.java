@@ -8,56 +8,51 @@ import org.springframework.stereotype.Service;
 
 import com.test.entity.Role;
 import com.test.entity.User;
-import com.test.repository.ProductRepository;
 import com.test.repository.RolesRepository;
-import com.test.repository.UserRepositiry;
+import com.test.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
 
 @Service
 @Transactional
-public class UserService {
-
-    private final ProductRepository productRepository;
-
-    private final ProductService productService;
+public class UserService 
+{
 	@Autowired
-	private UserRepositiry userRepositiry;
+	private UserRepository userRepository;
+	
 	@Autowired
 	private RolesRepository rolesRepository;
 	
+	@Autowired
 	private PasswordEncoder passwordEncoder;
-
-    UserService(ProductService productService, ProductRepository productRepository) {
-        this.productService = productService;
-        this.productRepository = productRepository;
-    }
 	
-	public List<User> findAll(){
-		return userRepositiry.findAll();
+	public List<User> findAll()
+	{
+		return userRepository.findAll();
 	}
 	
-	public User findById(int id) {
-		return userRepositiry.findById(id).orElse(null);
+	public User findById(Integer id)
+	{
+		return userRepository.findById(id).orElse(null);
 	}
 	
-	public User save(User user) {
-		if(user.getPassword() !=null && !user.getPassword().startsWith("$2a")) {
+	public User save(User user)
+	{
+		if(user.getPassword() != null && !user.getPassword().startsWith("$2a"))
+		{
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
 		}
-		return userRepositiry.save(user);
+		
+		return userRepository.save(user);
 	}
 	
-	public void deleteById(int id) {
-		userRepositiry.deleteById(id);
+	public void deleteById(Integer id)
+	{
+		userRepository.deleteById(id);
 	}
-	public List<Role> findAllRoles(){
+	
+	public List<Role> findAllRoles()
+	{
 		return rolesRepository.findAll();
 	}
-	
-	
-	
-	
-	
-	
 }

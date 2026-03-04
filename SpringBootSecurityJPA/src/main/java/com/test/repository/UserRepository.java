@@ -6,10 +6,8 @@ import org.springframework.data.repository.query.Param;
 
 import com.test.entity.User;
 
-public interface UserRepositiry extends JpaRepository<User, Integer>{
-
-	@Query("SELECT u FROM User u WHERE u.username=:username")
+public interface UserRepository extends JpaRepository<User, Integer>
+{
+	@Query("SELECT u FROM User u WHERE u.username = :username")
 	public User getUserByUsername(@Param("username") String username);
-	
-	
 }
